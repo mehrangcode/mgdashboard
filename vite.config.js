@@ -15,9 +15,17 @@ export default ({ mode }) => {
         remotes: {
           core: process.env.VITE_CORE + "/assets/remoteEntry.js",
         },
-        shared: ['react', 'react-dom']
+        shared: ['react', 'react-dom', 'zustand']
       })
     ],
+    optimizeDeps: {
+      esbuildOptions: {
+        target: 'esnext'
+      }
+    },
+    build: {
+      target: 'esnext'
+    },
     server: {
       port: 4001,
       open: "http://localhost:4001"
